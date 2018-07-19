@@ -1,6 +1,19 @@
 <h1>Login</h1>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, url: login_path, method: :post do |f| %>
+
+  <% if @user.errors.any? %>
+
+    <div id="error_explanation">
+      <h2>
+        There were some errors that prohibited this post from login you in:
+      </h2>
+  <% end %>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+
   <%= f.label :username %>
   <%= f.text_field :username %>
   <br><br>
