@@ -10,12 +10,15 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        render :new
+        redirect_to new_users_path
       end
   end
 
   def show
-    find_user
+    if logged_in?
+      find_user
+    else
+      redirect_to login_path
   end
 
 
