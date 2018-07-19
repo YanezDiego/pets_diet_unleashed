@@ -4,6 +4,6 @@ class Pet < ApplicationRecord
   has_many :diets
   has_many :foods, though: :diets
 
-  validates_precence_of :name, message: 'Give your pet a name...'
-  validates_precence_of :species, message: "Please specify species to help you better"
+  validates_presence_of :name, message: 'Give your pet a name...'
+  validates_presence_of :species, message: "Please specify species to help you better"
 end
