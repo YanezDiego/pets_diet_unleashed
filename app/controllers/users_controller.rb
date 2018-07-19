@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        redirect_to new_users_path
+        redirect_to new_user_path
       end
   end
 
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
       find_user
     else
       redirect_to login_path
+    end
   end
 
 
