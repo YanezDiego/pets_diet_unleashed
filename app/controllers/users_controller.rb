@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        redirect_to new_user_path
+        redirect_to new_user_path #Need to add flash msg for errors
       end
   end
 
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if logged_in?
       find_user
     else
-      redirect_to login_path
+      redirect_to login_path #Need to add flash msg for errors
     end
   end
 
