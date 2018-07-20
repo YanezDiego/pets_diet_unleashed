@@ -1,5 +1,19 @@
 class PetsController < ApplicationController
 
+  def new
+    @pet = Pet.new
+  end
+
+  def create
+    @pet = @current_user.pets.build(pet_params)
+      if @pet.valid?
+        @pet.save
+        redirect_to user_path(@current_user)
+      else
+        redirect_to new_pet_path #flash Message
+      end
+  end
+
   def show
     find_pet
   end
@@ -20,11 +34,11 @@ class PetsController < ApplicationController
   end
 
   def destroy
-    find_pet
-    unless !@current_user == @pet.user
+    @pet = @current_user.pets.find_by(id: params[:id])
+    if @pet == @pet.destroy
       redirect_to user_path(@current_user)
     else
-      @pet.delete
+      redirect_to user_path(@current_user)
     end
   end
 
