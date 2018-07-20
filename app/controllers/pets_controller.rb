@@ -8,7 +8,7 @@ class PetsController < ApplicationController
     @pet = @current_user.pets.build(pet_params)
       if @pet.valid?
         @pet.save
-        redirect_to user_path(@current_user)
+        redirect_to new_pet_diet_path(@pet)
       else
         redirect_to new_pet_path #flash Message
       end
