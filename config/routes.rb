@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :pets, only: [:show, :edit, :update, :destroy]
+  resources :pets, except: [:index] do
+    resources :diets, only: [:new, :show]
+  end
 
 end
