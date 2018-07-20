@@ -1,7 +1,7 @@
 <h1>Welcome <%= @current_user.name %>!</h1>
 
 <% if !@current_user.pets.empty? %>
-    <p>Add Pet <%#link_to %> </p>
+    <p><%= link_to 'Add Pet', new_pet_path %> </p>
    <p>Here are your pet's</p>
    <ul>
     <% @current_user.pets.each do |pet| %>
@@ -12,7 +12,7 @@
     <% end %>
   </ul>
 <% else %>
-  <p>Add Pet <%#link_to %> </p>
+  <p><%= link_to 'Add Pet', new_pet_path %></p>
 <% end %>
 
 
