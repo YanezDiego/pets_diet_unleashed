@@ -1,8 +1,13 @@
 
-
+<!-- Displays The Current Users Pet-->
 <h3><%= @pet.name %></h3>
 <h3><%= @pet.species %></h3>
 
-<%= link_to 'Edit Pet', edit_pet_path %>
+<!-- Displays The Current Users Pets Diet-->
+<% @pet.diets.each do |diet| %>
+  <p>Diet Name: <%= diet.name %> | Brand: <%= diet.food.brand %> </p>
+<% end %>
 
-<!-- DISPLAY DIET AND FOOD PET.ID IS CURRENTLY ON -->
+<!-- Delete and Edit Link-->
+<%= link_to 'Edit Pet', edit_pet_path %>
+<%= link_to "Delete", @pet, method: :delete, data: { confirm: "Really?" } %>
