@@ -11,7 +11,7 @@ skip_before_action :require_logged_in, only: [:index, :new, :create]
       if @user.valid?
         @user.save
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        redirect_to pets_path
       else
         redirect_to new_user_path #Need to add flash msg for errors
       end
