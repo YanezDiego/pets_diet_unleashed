@@ -1,8 +1,7 @@
 <h1>Welcome <%= @current_user.name %>!</h1>
 
 <% if !@current_user.pets.empty? %>
-    <p><%= link_to 'Add Pet', new_pet_path %> </p> <!-- Can refractor link? -->
-   <p>Here are your pet's</p>
+   <h3>Here are your pet's</h3>
    <ul>
     <% @current_user.pets.each do |pet| %>
       <li>
@@ -14,6 +13,3 @@
 <% else %>
   <p><%= link_to 'Add Pet', new_pet_path %></p> <!-- Can refractor link? -->
 <% end %>
-
-
-<%= link_to 'Log Out', logout_path %>
