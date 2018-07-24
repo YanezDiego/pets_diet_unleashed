@@ -7,6 +7,7 @@
 <% @pet.diets.each do |diet| %>
   <p>Diet Name: <%= diet.name %> | Brand: <%= diet.food.brand %>
     <%= link_to 'Update Diet', edit_pet_diet_path(@pet, diet) %>
+    <%= link_to "Delete Diet", diet, method: :delete, data: { confirm: "Really?" } %>
   </p>
 <% end %>
 
