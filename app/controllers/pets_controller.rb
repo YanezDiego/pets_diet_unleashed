@@ -27,7 +27,7 @@ class PetsController < ApplicationController
       find_pet
       @pet.update(pet_params)
       @pet.save
-      redirect_to user_path(@current_user)
+      redirect_to pets_path
     else
       redirect_to user_path(@current_user)
     end
