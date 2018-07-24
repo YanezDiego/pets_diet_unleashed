@@ -6,7 +6,6 @@ class DietsController < ApplicationController
 
   def create
     @diet = Diet.new(diet_params)
-    binding.pry
       if @diet.valid?
         @diet.save
         redirect_to pet_path(@diet.pet_id)
