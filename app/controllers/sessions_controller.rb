@@ -7,18 +7,24 @@ class SessionsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @user = User.find_or_create_by(uid: auth['uid']) do |u|
-      u.username = auth['info']['nickname']
-      u.email = auth['info']['email']
-      u.name = auth['info'][name]
-      end
+    if params[:user]
+      @user = User.find_by(username: params[:user][:username])
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
         redirect_to pets_path
       else
         redirect_to login_path
       end
+    elsif params[:code]
+      @user = User.find_or_create_by(uid: auth['uid']) do |u|
+        u.username = auth['info']['nickname']
+        u.email = auth['info']['email']
+        u.name = auth['info']['name']
+        u.password = auth['uid']
+      end # loop end
+      session[:user_id] = @user.id
+      redirect_to pets_path
+    end #if statement end
   end
 
   def destroy
