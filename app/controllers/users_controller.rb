@@ -17,6 +17,21 @@ skip_before_action :require_logged_in, only: [:index, :new, :create]
       end
   end
 
+  def edit
+    find_user
+  end
+
+  def update
+    find_user
+    @user.update(user_params)
+    if @user.valid?
+      @user.save
+      redirect_to user_path(@user)
+    else
+      edit_user_path(@user)
+    end
+  end
+
   def show
     if logged_in?
       find_user
