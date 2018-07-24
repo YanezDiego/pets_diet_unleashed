@@ -1,0 +1,11 @@
+<%= form_for @diet do |f| %>
+  <%= f.hidden_field :pet_id %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br><br>
+
+  <%= f.label :brand, 'Food Brand' %>
+  <%= f.collection_select :food_id, Food.all, :id, :brand %> <br><br>
+  <%= f.submit %>
+
+  <% end %>
