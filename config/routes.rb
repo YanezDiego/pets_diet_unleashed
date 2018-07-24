@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+
+  get '/auth/github/callback' => 'sessions#create'
+
   resources :users
 
   resources :pets do
