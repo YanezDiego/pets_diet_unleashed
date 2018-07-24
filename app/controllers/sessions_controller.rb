@@ -7,15 +7,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:user]
+    if params[:user] #local authenticate
       @user = User.find_by(username: params[:user][:username])
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
         redirect_to pets_path
       else
         redirect_to login_path
-      end
-    elsif params[:code]
+      end #local authenticate end
+      
+    elsif params[:code] #github path authenticate
       @user = User.find_or_create_by(uid: auth['uid']) do |u|
         u.username = auth['info']['nickname']
         u.email = auth['info']['email']
