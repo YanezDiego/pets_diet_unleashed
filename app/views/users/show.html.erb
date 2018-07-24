@@ -8,3 +8,6 @@
   <li>Email: <%= @current_user.email %></li>
   <li>You have <%= @current_user.pets.count %> pet(s) profiles created</li>
 </ul>
+
+
+<%= link_to 'Update Profile', edit_user_path(@current_user) %>
