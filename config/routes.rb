@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :users
 
   resources :pets do
-    resources :diets
+    resources :diets, only: [:new, :edit]
   end
+
+  resources :diets
 
 end
