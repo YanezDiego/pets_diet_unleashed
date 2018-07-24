@@ -1,20 +1,20 @@
 <%= form_for @pet do |f| %>
 
-<% if @pet.errors.any? %>
+  <% if @pet.errors.any? %>
 
-  <div id="error_explanation">
-    <h2>
-      There were some errors that prohibited this post from being saved:
-    </h2>
+    <div id="error_explanation">
+      <h2>
+        There were some errors that prohibited this post from being saved:
+      </h2>
 
-    <ul>
-    <% @pet.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
+      <ul>
+      <% @pet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
 
-    </ul>
-  </div>
-
+      </ul>
+  <% end %>
+    </div>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
