@@ -1,24 +1,19 @@
-# README
+# Welcome to Pet's Diet Unleashed
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## How To Use
 
-Things you may want to cover:
+This is a rails app to help you keep track of diet, and food for your best friend (your pet).
 
-* Ruby version
+This rails app uses bundler so make sure you run `bundle install` on your console after you fork this repo.
 
-* System dependencies
+Also make sure you run `rake db:migrate` to make sure the Database is up and running.
 
-* Configuration
+Pet's Diet Unleashed will eventually allow you to sign in with other popular third party apps ie: (Facebook, Google, etc..)
 
-* Database creation
+## License
 
-* Database initialization
+Please see MIT License Guidelines
 
-* How to run the test suite
+If you would like to contribute please email at diegosyanez92@gmail.com
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Copyright (c) 2018 Diego Yanez
