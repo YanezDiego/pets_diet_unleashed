@@ -6,7 +6,7 @@
 <ul>
   <li>User Name: <%= @current_user.username %></li>
   <li>Email: <%= @current_user.email %></li>
-  <li>You have <%= @current_user.pets.count %> pet(s) profiles created</li>
+  <li>You have <%= pluralize(@current_user.pets.count, "pet") %> profile created</li>
 </ul>
 
 
