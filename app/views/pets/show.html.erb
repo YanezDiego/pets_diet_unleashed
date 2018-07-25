@@ -1,12 +1,12 @@
 
 <!-- Displays The Current Users Pet-->
-<h3><%= @pet.name %></h3>
-<h3><%= @pet.species %></h3>
+<h3>Pet Name: <%= @pet.name %></h3>
+<h3>Pet Species: <%= @pet.species %></h3>
 
 <!-- Displays The Current Users Pets Diet-->
 <% @pet.diets.each do |diet| %>
   <p>Diet Name: <%= diet.name %> | Brand: <%= diet.food.brand %>
-    <%= link_to 'Update Diet', edit_pet_diet_path(@pet, diet) %>
+    <%= link_to 'Update Diet', edit_pet_diet_path(@pet, diet) %> | 
     <%= link_to "Delete Diet", diet, method: :delete, data: { confirm: "Really?" } %>
   </p>
 <% end %>
