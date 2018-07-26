@@ -13,7 +13,7 @@ skip_before_action :require_logged_in, only: [:index, :new, :create]
         session[:user_id] = @user.id
         redirect_to pets_path
       else
-        redirect_to new_user_path #Need to add flash msg for errors
+        render :new #Need to add flash msg for errors
       end
   end
 
