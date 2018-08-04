@@ -1,5 +1,12 @@
-<h1>Welcome to Pets Diet Unleashed</h1>
+<h1 class = "text-center">Welcome to:</h1>
+<h2 class = "text-center">Pets Diet Unleashed</h2>
 
-<%= link_to "Log In", login_path %>  | <%= link_to "Sign Up", new_user_path %>
+<div class = "text-center">
+<%= link_to "Log In", login_path, class: "btn btn-primary btn-lg btn-block" %>
+<%= link_to "Sign Up", new_user_path, class: "btn btn-primary btn-lg btn-block" %>
 
-<%= link_to 'Log In With Github', '/auth/github' %>
+<%= link_to '/auth/github' , class: "btn btn-block btn-social btn-github" do %>
+  <span class="fa fa-github"> </span>Log In With Github
+<% end %>
+
+</div>
