@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       else
         redirect_to login_path
       end #local authenticate end
-      
+
     elsif params[:code] #github path authenticate
       @user = User.find_or_create_by(uid: auth['uid']) do |u|
         u.username = auth['info']['nickname']
