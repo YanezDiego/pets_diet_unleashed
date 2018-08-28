@@ -16,6 +16,10 @@ class PetsController < ApplicationController
 
   def show
     find_pet
+    respond_to do |f|
+      f.html
+      f.json {render json: @pet}
+    end
   end
 
   def edit
