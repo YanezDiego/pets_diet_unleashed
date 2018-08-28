@@ -2,8 +2,10 @@
 
 <% if !@current_user.pets.empty? %>
    <h3>Here are your pet's</h3>
-   <p>Number of Dogs Created: <%= @current_user.pets.dog_count%></p>
-   <p>Number of Cats Created: <%= @current_user.pets.cat_count %></p>
+   <p>Number of Dogs Created: <%= @current_user.pets.dog_count%></p> <button>More Info...</button>
+   <p>Number of Cats Created: <%= @current_user.pets.cat_count %></p><button>More Info...</button>
+
+   
    <ul>
     <% @current_user.pets.each do |pet| %>
       <li>
