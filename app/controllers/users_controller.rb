@@ -35,6 +35,10 @@ skip_before_action :require_logged_in, only: [:index, :new, :create]
   def show
     if logged_in?
       find_user
+      respond_to do |f|
+        f.html
+        f.json {render json: @user}
+      end
     else
       redirect_to login_path #Need to add flash msg for errors
     end
