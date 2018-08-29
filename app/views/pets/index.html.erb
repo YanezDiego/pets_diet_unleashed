@@ -2,14 +2,18 @@
 
 <% if !@current_user.pets.empty? %>
    <h3>Here are your pet's</h3>
-   <p>Number of Dogs Created: <%= @current_user.pets.dog_count%></p> <button>More Info...</button>
-   <p>Number of Cats Created: <%= @current_user.pets.cat_count %></p><button>More Info...</button>
+   <di id="dog">
+   <p>Number of Dogs Created: <%= @current_user.pets.dog_count%> - <a href="#" class="moreInfo">More Info</a></p>
+  </di>
+  <div id="cat">
+   <p>Number of Cats Created: <%= @current_user.pets.cat_count %> - <a href="#" class="moreInfo">More Info</a></p>
+ </div>
 
-   
+
    <ul>
     <% @current_user.pets.each do |pet| %>
       <li>
-        <%= link_to pet.name, pet_path(pet.id)  %> - <%= pet.species %> |
+        <%= link_to pet.name, pet_path(pet.id)  %> - <%= pet.species %>
          <%= link_to "Delete", pet, method: :delete, data: { confirm: "Really?" } %>
       </li>
     <% end %>
