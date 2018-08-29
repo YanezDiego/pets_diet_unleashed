@@ -16,4 +16,12 @@ class Pet < ApplicationRecord
     where(species: 'cat').count
   end
 
+  def self.dog
+    Pet.where(species: 'dog')
+  end
+
+  def self.cat
+    Pet.where(species: 'cat')
+  end
+
 end
