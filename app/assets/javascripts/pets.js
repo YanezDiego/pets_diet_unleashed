@@ -8,18 +8,25 @@ $(() => {
 const clickHandler = () =>{
   $(".js-moreInfo").on('click', function(){
     let id = $(this).data("id")
-    $.get("/pets/" + id + ".json", function(data){
-      console.log(data)
+    $.get("/pets/" + id + ".json", function(pet){
+      let newPet = new Pet(pet)
+      console.log(newPet)
+      pet.diets.forEach(diet => {
+        console.log(diet.name)
+      })
+
+      // $(".diet-" + id).text(data["diets"]).value
     })
   })
 }
 
 
-function Pet(id, name, species, user_id){
-  this.id = data["id"]
-  this.name = data["name"]
-  this.species = data["species"]
-  this.user_id = data["user_id"]
+function Pet(pet){
+  this.id = pet.id
+  this.name = pet.name
+  this.species = pet.species
+  this.user = pet.user
+  this.diets = pet.diets
 }
 
 
