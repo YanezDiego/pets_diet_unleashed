@@ -1,30 +1,37 @@
-<h1>Welcome <%= @current_user.name %>!</h1>
+<container> <!-- should be aligned center -->
+  <h1>Welcome <%= @current_user.name %>!</h1>
 
-<% if !@current_user.pets.empty? %>
-   <h3>Here are your pet's</h3>
-   <di id="dog">
-   <p>Number of Dogs Created: <%= @current_user.pets.dog_count%>
-  </di>
-  <div id="cat">
-   <p>Number of Cats Created: <%= @current_user.pets.cat_count %></p>
- </div>
+  <% if !@current_user.pets.empty? %>
+     <h3>Here are your pet's</h3>
+
+     <p>Number of Dogs Created: <%= @current_user.pets.dog_count%>
+
+     <p>Number of Cats Created: <%= @current_user.pets.cat_count %></p>
+</container>
 
   <!-- <% @current_user.pets.dog.each do |dog| %>
   <%= dog.name %>
   <% end %> -->
 
+<container><!-- should be aligned left -->
+     <ul>
+      <% @current_user.pets.each do |pet| %>
+        <li>
+          <%= link_to pet.name, pet_path(pet.id)  %> - <%= pet.species %>
 
-   <ul>
-    <% @current_user.pets.each do |pet| %>
-      <li>
-        <%= link_to pet.name, pet_path(pet.id)  %> - <%= pet.species %>
-        <div class="diet-<%= pet.id %>"></div>
-        <div><button class="js-moreInfo" data-id="<%= pet.id %>">More Info..</button></div>
-        <button><%= link_to "Delete", pet, method: :delete, data: { confirm: "Really?" } %></button></div>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>Want to add some friend of yours?</p>
-  <p><%= link_to 'Add Pet', new_pet_path %></p>
-<% end %>
+          <div><button class="js-moreInfo" data-id="<%= pet.id %>">More Info..</button>
+          <button><%= link_to "Delete", pet, method: :delete, data: { confirm: "Really?" } %></button></div>
+          <div id="right-side"></div>
+          <div id="diets"></div>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Want to add some friend of yours?</p>
+    <p><%= link_to 'Add Pet', new_pet_path %></p>
+  <% end %>
+</container>
+
+<!-- <container id="right-side">
+
+</container> -->
