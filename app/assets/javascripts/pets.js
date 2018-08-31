@@ -10,16 +10,11 @@ const clickHandler = () =>{
     let id = $(this).data("id")
     $.get("/pets/" + id + ".json", function(pet){
       let newPet = new Pet(pet)
-      console.log(newPet)
-      pet.diets.forEach(diet => {
-        console.log(diet.name)
-      })
-
-      // $(".diet-" + id).text(data["diets"]).value
+      let petHTML = newPet.showPet(newPet)
+      $("#right-side").append(petHTML)
     })
   })
 }
-
 
 function Pet(pet){
   this.id = pet.id
@@ -30,8 +25,26 @@ function Pet(pet){
 }
 
 
+Pet.prototype.showPet = function(){
+  let petHTML = `<div>
+          <h3>${this.name}</h3>
+          <h5> Species: ${this.species}</h5>
+          </div>`
+  return petHTML
+}
 
-// $(".dog-show").append(`
+
+
+
+
+
+
+
+
+// `
+// <div class="diet-<%= pet.id %>"></div>
+//
+// // $(".dog-show").append(`
 //   <% @current_user.pets.dog.each do |dog| %>
 //   <%= dog.name %>
 //   <% end %>
