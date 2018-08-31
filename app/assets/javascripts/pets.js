@@ -10,8 +10,9 @@ const clickHandler = () =>{
     let id = $(this).data("id")
     $.get("/pets/" + id + ".json", function(pet){
       let newPet = new Pet(pet)
+      $("#body-display").html("")
       let petHTML = newPet.showPet(newPet)
-      $("#right-side").append(petHTML)
+      $("#body-display").append(petHTML)
     })
   })
 }
