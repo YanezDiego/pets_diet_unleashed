@@ -9,8 +9,11 @@ class DietsController < ApplicationController
   end
 
   def index
-    diet = Diet.all
-    render json: diet
+    @diets = Diet.all
+    respond_to do |f|
+      f.html
+      f.json {render json: @diets}
+    end
   end
 
   def create
