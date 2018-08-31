@@ -12,8 +12,36 @@
  *
  */
 
- 
+
 
 @import "font-awesome";
 @import "bootstrap";
 @import "bootstrap-social.css";
+
+/* Landing Page*/
+.text-center{
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+
+
+/* Signin Form */
+.form-signin{
+width: 100%;
+max-width: 330px;
+padding: 15px;
+margin: auto;
+}
+
+
+
+
+
+.btn-github {
+color: #fff;
+background-color: #444;
+border-color: rgba(0,0,0,0.2);
+}
