@@ -8,6 +8,11 @@ class DietsController < ApplicationController
     end
   end
 
+  def index
+    diet = Diet.all
+    render json: diet
+  end
+
   def create
     @diet = Diet.new(diet_params)
       if @diet.valid?
