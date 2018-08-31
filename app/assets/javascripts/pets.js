@@ -16,6 +16,7 @@ const clickHandler = () =>{
   })
 }
 
+
 function Pet(pet){
   this.id = pet.id
   this.name = pet.name
@@ -26,26 +27,9 @@ function Pet(pet){
 
 
 Pet.prototype.showPet = function(){
-  let petHTML = `<div>
+  let petHTML = `
           <h3>${this.name}</h3>
           <h5> Species: ${this.species}</h5>
-          </div>`
+          `
   return petHTML
 }
-
-
-
-
-
-
-
-
-
-// `
-// <div class="diet-<%= pet.id %>"></div>
-//
-// // $(".dog-show").append(`
-//   <% @current_user.pets.dog.each do |dog| %>
-//   <%= dog.name %>
-//   <% end %>
-//   `)
