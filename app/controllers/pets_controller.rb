@@ -14,6 +14,7 @@ class PetsController < ApplicationController
       end
   end
 
+
   def show
     find_pet
     respond_to do |f|
