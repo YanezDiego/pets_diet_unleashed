@@ -14,7 +14,11 @@ const dietClickHandler = () => {
       .then(diets => {
         $("#body-display").html('')
         diets.forEach(diet => {
-          console.log(diet)
+          let newDiet = new Diet(diet)
+          
+          let dietHTML = newDiet.renderDiets(newDiet)
+
+          $("#body-display").append(dietHTML)
         })
       })
   })
@@ -24,4 +28,11 @@ function Diet(diet){
   this.id = diet.id
   this.name = diet.name
   this.food = diet.food
+}
+
+Diet.prototype.renderDiets = function(){
+  let dietHTML = `
+    <h3>${this.name}</h3>
+  `
+  return dietHTML
 }
