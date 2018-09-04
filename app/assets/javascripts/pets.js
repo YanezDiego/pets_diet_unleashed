@@ -30,6 +30,7 @@ const submitPet = () => {
       $("#petName").text(pet["name"])
       $("#petSpecies").text(pet["species"])
     })
+    this.reset();
   })
 }
 
@@ -53,9 +54,19 @@ function Pet(pet){
 
 
 Pet.prototype.showPet = function(){
+  let diet = this.diets.map(d =>
+    `<li>
+      Diet : ${d.name}
+      </li>`
+  )
+
+
   let petHTML = `
           <h3 id="petName">${this.name}</h3>
           <h3 id="petSpecies"> Species: ${this.species}</h3>
+          <ul>
+            ${diet.join('')}
+          </ul>
           <a href="/pets/${this.id}">See Even More Info.</a>
 
           `
