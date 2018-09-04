@@ -1,4 +1,4 @@
-<%= form_for @pet do |f| %>
+<%= form_for @pet, :html => {id: 'petForm'} do |f| %>
 
   <% if @pet.errors.any? %>
 
