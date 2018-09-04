@@ -19,7 +19,7 @@ const clickHandler = () =>{
 }
 
 const submitPet = () => {
-  $('form').submit(function(e){
+  $('#petForm').submit(function(e){
     e.preventDefault()
 
     let values = $(this).serialize();
