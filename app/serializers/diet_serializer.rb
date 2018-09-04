@@ -1,6 +1,6 @@
 class DietSerializer < ActiveModel::Serializer
   attributes :id, :name
 
-  has_many :food
+  belongs_to :food
   belongs_to :pet
 end
