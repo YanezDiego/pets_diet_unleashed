@@ -34,6 +34,7 @@ function Diet(diet){
 Diet.prototype.renderDiets = function(){
   let dietHTML = `
     <h3>${this.name}</h3>
+    <a href="/diets/${this.id}">See More Info..</a>
   `
   return dietHTML
 }
