@@ -8,7 +8,8 @@ class PetsController < ApplicationController
     @pet = @current_user.pets.build(pet_params)
       if @pet.valid?
         @pet.save
-        redirect_to new_pet_diet_path(@pet)
+        render json: @pet, status: 201
+        # redirect_to new_pet_diet_path(@pet)
       else
         redirect_to new_pet_path #flash Message
       end
@@ -39,9 +40,9 @@ class PetsController < ApplicationController
   end
 
   def destroy
-    @pet = @current_user.pets.find_by(id: params[:id])
+    @pet = Pet.find_by(id: params[:id])
     if @pet == @pet.destroy
-      redirect_to user_path(@current_user)
+      redirect_to pets_path
     else
       redirect_to user_path(@current_user)
     end
