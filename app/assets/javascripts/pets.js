@@ -3,6 +3,7 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 $(() => {
   clickHandler();
+  submitPet();
 })
 
 const clickHandler = () =>{
@@ -10,12 +11,36 @@ const clickHandler = () =>{
     let id = $(this).data("id")
     $.get("/pets/" + id + ".json", function(pet){
       let newPet = new Pet(pet)
-      $("#body-display").html("")
+      $("#right-side").html("")
       let petHTML = newPet.showPet(newPet)
-      $("#body-display").append(petHTML)
+      $("#right-side").append(petHTML)
     })
   })
 }
+
+const submitPet = () => {
+  $('form').submit(function(e){
+    e.preventDefault()
+
+    let values = $(this).serialize();
+
+    let posting = $.post('/pets', values)
+    posting.done(function(data){
+      let pet = data
+      $("#petName").text(pet["name"])
+      $("#petSpecies").text(pet["species"])
+    })
+  })
+}
+
+
+// Possible feature
+// const nextHandler = () => {
+//   $("#js-next").on("click", function(e){
+//     e.preventDefault()
+//
+//   })
+// }
 
 
 function Pet(pet){
@@ -29,8 +54,10 @@ function Pet(pet){
 
 Pet.prototype.showPet = function(){
   let petHTML = `
-          <h3>${this.name}</h3>
-          <h5> Species: ${this.species}</h5>
+          <h3 id="petName">${this.name}</h3>
+          <h3 id="petSpecies"> Species: ${this.species}</h3>
+          <a href="/pets/${this.id}">See Even More Info.</a>
+
           `
   return petHTML
 }
